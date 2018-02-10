@@ -1,0 +1,47 @@
+#coding=utf-8
+
+from django.shortcuts import render, get_object_or_404
+from django.views import generic
+
+from .models import Product, Category
+
+class ProductListView(generic.ListView):
+    model = Product
+    template_name = 'catalog/product_list.html'
+    paginate_by = 3 #faz paginação automática pelos 3 primeiros elementos
+    #o django colocar o nome da variável 'product_list' automatico no template,
+    #mas podemos mudar para qualquer nome, bastando trocar na linha abaixo o
+    #product_list para o nome escolhido, ex products, e no template utilizar
+    #o novo nome
+    #context_object_name = 'product_list'
+
+product_list = ProductListView.as_view()
+
+class CategoryListView(generic.ListView):
+
+	template_name = 'catalog/category.html'
+	context_object_name = 'product_list'
+	paginate_by = 3 #faz paginação automática pelos 3 primeiros elementos
+
+	def get_queryset(self):
+		return Product.objects.filter(category__slug=self.kwargs['slug'])
+
+	def get_context_data(self, **kwargs):
+		context = super(CategoryListView, self).get_context_data(**kwargs)
+		context['current_category'] = get_object_or_404(Category, slug=self.kwargs['slug'])
+		return context
+
+category = CategoryListView.as_view()
+
+def product(request, slug):
+	product = Product.objects.get(slug=slug)
+	context = {
+		'product': product
+	}
+	return render(request, 'catalog/product.html', context)
+
+def products(request):
+	context = {
+		'product_list': Product.objects.all()
+	}
+	return render(request, 'catalog/product_list.html', context)
