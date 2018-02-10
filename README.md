@@ -60,7 +60,7 @@ Diemesleno Souza Carvalho – [@diemesleno](https://twitter.com/diemesleno) – 
 
 Distributed under the ![AUR][gpl-image] license. 
 
-[https://github.com/diemeslen0/simetric](https://github.com/diemeslen0/)
+[https://github.com/diemeslen0/djangoecommerce](https://github.com/diemeslen0/)
 
 [python-image]: https://img.shields.io/pypi/pyversions/Django.svg?style=flat-square
 [gpl-image]: https://img.shields.io/aur/license/yaourt.svg?style=flat-square
