@@ -1,15 +1,12 @@
-# Websime from the company [Simetric](https://www.simetric.com.br)
-> Just a normal website to shows what the company does and what products and
-services it sells. 
+# Django E-commerce
+> A prototype for an e-commerce application using Django. 
 
 ![PyPi][python-image]
 ![PyPi][status-image]
 ![Dockbit][deploy-image]
 ![Wercker][build-image]
 
-The website itself is very simple and objective. As normally we have a public area and a private area
-so I used Django to help me to manage it. Besides on private area I'm also using DjangoAdminLTE2 to
-improve the look and fell.
+This application was used to understand the integration with PagSeguro and GerenciaNet Payment Gateway.
 
 ## Technologies utilized
 * Python 3.5+
@@ -19,15 +16,13 @@ improve the look and fell.
 ## Public area
 ![](public.png)
 
-## Private area
-![](admin.png)
 
 ## Installation
 
 Any Operating System:
 
 ```sh
-mkvirtualenv simetric -p python3
+mkvirtualenv djangoecommerce -p python3
 
 pip install -r requeriments.txt
 
@@ -48,8 +43,12 @@ access http://localhost:8000
     * CHANGE: Update README
 * 0.2.0
     * The first proper release
+* 0.1.3
+	* ADD: Create the app `checkout`
+* 0.1.2
+	* ADD: Create the app `accounts`
 * 0.1.1
-    * ADD: Create the app `acesso`
+    * ADD: Create the app `catalog`
 * 0.1.0
     * ADD: Create the app `core` 
 * 0.0.1
